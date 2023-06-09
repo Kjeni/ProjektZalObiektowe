@@ -14,6 +14,7 @@ namespace MeczeBundesligi
             BundDataSet.DisplayItem(list, 7);
             BundDataSet.Winning(list, 7);
             Console.ReadKey();
+            //komentarztestowy
         }
     }
 }
