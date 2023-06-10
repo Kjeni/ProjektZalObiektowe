@@ -72,6 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BundDataSet.cs" />
+    <Compile Include="IDataSet.cs" />
+    <Compile Include="Mecze.cs" />
     <Compile Include="Counting.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

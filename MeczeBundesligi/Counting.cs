@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MeczeBundesligi
 {
-    public class Counting
+    public class Counting: IDataSet
     {
 
         public string team1 { get; set; }
