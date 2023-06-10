@@ -44,7 +44,7 @@ namespace MeczeBundesligi
             {
                 BundDataSet match = list[index];
 
-                Console.WriteLine("Mecz w dniu " + match.Date + "między:");
+                Console.WriteLine("Mecz w dniu " + match.Date + " między: ");
                 Console.WriteLine("Drużyna gospodarzy: " + match.team1 + "  Gole: " + match.goal1);
                 Console.WriteLine("Drużyna gości: " + match.team2 + "  Gole: " + match.goal2);
             }
