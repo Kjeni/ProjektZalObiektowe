@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MeczeBundesligi
 {
-    public class BundDataSet
+    public class BundDataSet : IMatch
     {
         public string team1 { get; set; }
         public string team2 { get; set; }
@@ -19,6 +19,8 @@ namespace MeczeBundesligi
         public double team1_win { get; set; }
         public double team2_win { get; set; }
         public DateTime Date { get; set; }
+        public int goal1 { get; set; }
+        public int goal2 { get; set; }
         public static List<BundDataSet> GetData(string fileName)
         {
             if (File.Exists(fileName))
@@ -43,8 +45,8 @@ namespace MeczeBundesligi
                 BundDataSet match = list[index];
 
                 Console.WriteLine("Mecz w dniu " + match.Date + "między:");
-                Console.WriteLine("Drużyna gospodarzy: " + match.team1);
-                Console.WriteLine("Drużyna gości: " + match.team2);
+                Console.WriteLine("Drużyna gospodarzy: " + match.team1 + "  Gole: " + match.goal1);
+                Console.WriteLine("Drużyna gości: " + match.team2 +"  Gole: " + match.goal2);
             }
             else
             {
@@ -56,7 +58,7 @@ namespace MeczeBundesligi
             BundDataSet match = list[index];
             double draw = match.draw;
             double team1_win = match.team1_win;
-            double team2_win = match.team2_win;   
+            double team2_win = match.team2_win;
             if (match.draw == 1)
             {
                 Console.WriteLine("Mecz zakończył się remisem");
@@ -83,6 +85,8 @@ namespace MeczeBundesligi
                 Map(m => m.team1_win).Name("WIN_HOME");
                 Map(m => m.team2_win).Name("WIN_AWAY");
                 Map(m => m.Date).Name("MATCH_DATE").TypeConverterOption.Format("yyyy-MM-dd HH:mm:ss");
+                Map(m => m.goal1).Name("GOALS_HOME");
+                Map(m => m.goal2).Name("GOALS_AWAY");
 
             }
         }

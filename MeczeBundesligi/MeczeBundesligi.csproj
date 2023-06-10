@@ -72,7 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BundDataSet.cs" />
+    <Compile Include="Drużyna.cs" />
     <Compile Include="Counting.cs" />
+    <Compile Include="IMatch.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
