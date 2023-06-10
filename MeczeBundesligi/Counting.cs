@@ -36,8 +36,6 @@ namespace MeczeBundesligi
                     }
                 }
             }
-
-            Console.WriteLine("Nazwa drużyny: " + teamName);
             return count;
         }
 
