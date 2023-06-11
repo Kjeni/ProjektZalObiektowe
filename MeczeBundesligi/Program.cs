@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace MeczeBundesligi
 {
@@ -36,26 +37,27 @@ namespace MeczeBundesligi
 
 
             Console.WriteLine("Naciśnij klawisz Enter, aby zapisać do pliku. Naciśnij Escape, aby zakończyć.");
-
+            List<BundDataSet> matchingMatches = Mecze.Matches(list, datapoczatkowa, datakoncowa);
             while (true)
             {
                 ConsoleKeyInfo keyInfo = Console.ReadKey();
 
                 if (keyInfo.Key == ConsoleKey.Enter)
                 {
-                    string csvFilePath = @"FIles\zapismatches.csv";
+                    string csvFilePath = @"Files\zapis.csv";
                     using (var writer = new StreamWriter(csvFilePath))
                     {
                         writer.WriteLine("team1,team2,draw,team1_win,team2_win,Date,goal1,goal2"); // Nagłówki kolumn
 
-                        foreach (var match in Mecze.Matches(list, datapoczatkowa, datakoncowa))
+                        foreach (BundDataSet m in matchingMatches)
                         {
-                            string csvLine = $"{match.team1},{match.team2},{match.draw},{match.team1_win},{match.team2_win},{match.Date},{match.goal1},{match.goal2}";
+                            string csvLine = $"{m.team1},{m.team2},{m.draw},{m.team1_win},{m.team2_win},{m.Date},{m.goal1},{m.goal2}";
                             writer.WriteLine(csvLine);
                         }
                     }
 
                     Console.WriteLine("Dane zapisane do pliku CSV.");
+
                 }
                 else if (keyInfo.Key == ConsoleKey.Escape)
                 {
