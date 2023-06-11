@@ -18,20 +18,21 @@ namespace MeczeBundesligi
         public int goal1 { get; set; }
         public int goal2 { get; set; }
 
-        public static int Matches(List<BundDataSet> list, DateTime startDate, DateTime endDate)
+        public static List<BundDataSet> Matches(List<BundDataSet> list, DateTime startDate, DateTime endDate)
         {
-
-        foreach (BundDataSet m in list)
+            List<BundDataSet> matchingMatches = new List<BundDataSet>();
+            foreach (BundDataSet m in list)
         {
             if(m.Date >= startDate && m.Date <= endDate)
-            { 
+            {
                 Console.WriteLine("Mecz w dniu " + m.Date + " między:");
                 Console.WriteLine("Drużyna gospodarzy: " + m.team1 + "  Gole: " + m.goal1);
                 Console.WriteLine("Drużyna gości: " + m.team2 + "  Gole: " + m.goal2);
-                Console.WriteLine();
-            }
+
+                matchingMatches.Add(m);
+                }
         }
-        return 0;
+        return matchingMatches;
         }
         }
 
