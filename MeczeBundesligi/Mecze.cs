@@ -28,6 +28,7 @@ namespace MeczeBundesligi
                 Console.WriteLine("Mecz w dniu " + m.Date + " między:");
                 Console.WriteLine("Drużyna gospodarzy: " + m.team1 + "  Gole: " + m.goal1);
                 Console.WriteLine("Drużyna gości: " + m.team2 + "  Gole: " + m.goal2);
+                    Console.WriteLine();
 
                 matchingMatches.Add(m);
                 }

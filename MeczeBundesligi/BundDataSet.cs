@@ -1,5 +1,6 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -71,6 +72,12 @@ namespace MeczeBundesligi
             {
                 Console.WriteLine("Zwyciężyła drużyna gości: " + match.team2);
             }
+        }
+
+        public static void SaveToFile(string fileName, List<BundDataSet> list)
+        {
+            string textToSave = JsonConvert.SerializeObject(list, Formatting.Indented);
+            File.WriteAllText(fileName, textToSave);
         }
 
 

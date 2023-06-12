@@ -16,27 +16,47 @@ namespace MeczeBundesligi
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("_____________Indeks_____________");
+            Console.WriteLine("*************Indeks*************");
             List<BundDataSet> list = BundDataSet.GetData(@"FIles\matchesdata.csv");
             BundDataSet.DisplayItem(list, 7);
             BundDataSet.Winning(list, 7);
+            Console.WriteLine("****************************************************");
+            Console.WriteLine();
+
+
             //Team winner counter from date to date
             string drużyna = "Borussia Dortmund";
-            Console.WriteLine("______Zwycięstwa " + drużyna + "______");
+            Console.WriteLine("*************Zwycięstwa " + drużyna + "*************");
             DateTime datapoczatkowawin = new DateTime(2007, 12, 1);
+            string dateStart = datapoczatkowawin.ToString("dd-MM-yyyy");
+
             DateTime datakoncowawin = new DateTime(2022, 12, 31);
+            string dateEnd = datakoncowawin.ToString("dd-MM-yyyy");
+
             int wins = Counting.CountTeamWins(list, drużyna, datapoczatkowawin, datakoncowawin);
-            Console.WriteLine("Liczba zwycięstw od: " + datakoncowawin + " do: " + datakoncowawin + ": " + wins);
+            Console.WriteLine("Liczba zwycięstw od: " + dateStart + " do: " + dateEnd + ": " + wins);
+            Console.WriteLine("****************************************************");
+            Console.WriteLine();
+
+
             //Mecze od daty do daty
             DateTime datapoczatkowa = new DateTime(2007, 12, 1);
+            string dateStart2 = datapoczatkowa.ToString("dd-MM-yyyy");
+
             DateTime datakoncowa = new DateTime(2007, 12, 10);
-            Console.WriteLine("___Lista meczy od: " + datapoczatkowa + "do: " + datakoncowa + "___");
-            Mecze.Matches(list, datapoczatkowa, datakoncowa);
-            //Zapis do pliku
+            string dateEnd2 = datakoncowa.ToString("dd-MM-yyyy");
 
-
-
+            Console.WriteLine("*************Lista meczy od: " + dateStart2 + " do: " + dateEnd2 + "*************");
             Console.WriteLine("Naciśnij klawisz Enter, aby zapisać do pliku. Naciśnij Escape, aby zakończyć.");
+            Console.WriteLine();
+            Mecze.Matches(list, datapoczatkowa, datakoncowa);
+
+
+            //Zapis do pliku txt
+            BundDataSet.SaveToFile("Bundesliga.txt", list);
+
+
+            //Zapis do pliku CSV
             List<BundDataSet> matchingMatches = Mecze.Matches(list, datapoczatkowa, datakoncowa);
             while (true)
             {
@@ -63,7 +83,7 @@ namespace MeczeBundesligi
                 {
                     break;
                 }
-
+                Console.WriteLine("****************************************************");
                 Console.ReadKey();
             }
         }

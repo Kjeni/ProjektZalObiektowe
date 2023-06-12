@@ -38,7 +38,6 @@ namespace MeczeBundesligi
             }
             return count;
         }
-
     }
 }
 
