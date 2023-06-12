@@ -3,16 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramowanieObiektowe", "ProgramowanieObiektowe\ProgramowanieObiektowe.csproj", "{825565AA-2441-4464-8A8D-29B9CF85C585}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klasy", "Klasy\Klasy.csproj", "{B5EA715B-279B-43F1-9269-82933553E1F0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Faktury", "Faktury\Faktury.csproj", "{A8BC6DF3-7CD1-4D96-A7A7-D5BB1D6E5428}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock", "Stock\Stock.csproj", "{EBE64D70-2031-4C62-B2B0-440DABCC056E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaggle", "Kaggle\Kaggle.csproj", "{79A7F699-4F46-4375-B603-38635180A80E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeczeBundesligi", "MeczeBundesligi\MeczeBundesligi.csproj", "{852310C7-FB28-48C5-A47C-93EEE89E7FEA}"
 EndProject
 Global
