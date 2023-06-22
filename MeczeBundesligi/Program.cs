@@ -66,17 +66,15 @@ namespace MeczeBundesligi
             Console.WriteLine("*************Lista meczy od: " + dateStart2 + " do: " + dateEnd2 + "*************");
             Console.WriteLine("Naciśnij klawisz Enter, aby zapisać do pliku. Naciśnij Escape, aby zakończyć.");
             Console.WriteLine();
-            Mecze.Matches(list, datapoczatkowa, datakoncowa);
             //Zapis do pliku txt
             BundDataSet.SaveToFile("Bundesliga.txt", list);
 
 
-
+            List<BundDataSet> matchingMatches = Mecze.Matches(list, datapoczatkowa, datakoncowa);
             Console.WriteLine("Naciśnij klawisz Enter, aby zapisać (mecze od do) do pliku. Naciśnij Escape, aby zakończyć.");
             Console.WriteLine("****************************************************");
-            Console.ReadKey();
             //Zapis do pliku CSV
-            List<BundDataSet> matchingMatches = Mecze.Matches(list, datapoczatkowa, datakoncowa);
+
             while (true)
             {
                 ConsoleKeyInfo keyInfo = Console.ReadKey();
