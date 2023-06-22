@@ -7,16 +7,9 @@ using System.Threading.Tasks;
 
 namespace MeczeBundesligi
 {
-    public class Mecze : IDataSet
+    public class Mecze
     {
-        public string team1 { get; set; }
-        public string team2 { get; set; }
-        public double draw { get; set; }
-        public double team1_win { get; set; }
-        public double team2_win { get; set; }
-        public DateTime Date { get; set; }
-        public int goal1 { get; set; }
-        public int goal2 { get; set; }
+
         public  List<BundDataSet> matchingMatches { get; set; }
         public static List<BundDataSet> Matches(List<BundDataSet> list, DateTime startDate, DateTime endDate)
         {

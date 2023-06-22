@@ -22,6 +22,7 @@ namespace MeczeBundesligi
         public DateTime Date { get; set; }
         public int goal1 { get; set; }
         public int goal2 { get; set; }
+        public string location { get; set; }
         public static List<BundDataSet> GetData(string fileName)
         {
             if (File.Exists(fileName))
@@ -94,6 +95,7 @@ namespace MeczeBundesligi
                 Map(m => m.Date).Name("MATCH_DATE").TypeConverterOption.Format("yyyy-MM-dd HH:mm:ss");
                 Map(m => m.goal1).Name("GOALS_HOME");
                 Map(m => m.goal2).Name("GOALS_AWAY");
+                Map(m => m.location).Name("LOCATION");
 
             }
         }

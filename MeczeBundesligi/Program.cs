@@ -46,16 +46,35 @@ namespace MeczeBundesligi
             DateTime datakoncowa = new DateTime(2007, 12, 10);
             string dateEnd2 = datakoncowa.ToString("dd-MM-yyyy");
 
+            //Mecze po lokalizacji
+            string locationName = "Berlin";
+
+            List<BundDataSet> allMatches = BundDataSet.GetData(@"FIles\matchesdata.csv");
+            Location location = new Location(locationName);
+            List<BundDataSet> matchesForLocation = location.GetMatchesForLocation(allMatches);
+
+            Console.WriteLine($"*************Mecze w lokalizacji '{location.Name}'*************");
+            foreach (BundDataSet match in matchesForLocation)
+            {
+                Console.WriteLine($"Mecz w dniu {match.Date} między:");
+                Console.WriteLine($"Drużyna gospodarzy: {match.team1}  Gole: {match.goal1}");
+                Console.WriteLine($"Drużyna gości: {match.team2}  Gole: {match.goal2}");
+                Console.WriteLine();
+            }
+
+            //lista meczy od do {data}
             Console.WriteLine("*************Lista meczy od: " + dateStart2 + " do: " + dateEnd2 + "*************");
             Console.WriteLine("Naciśnij klawisz Enter, aby zapisać do pliku. Naciśnij Escape, aby zakończyć.");
             Console.WriteLine();
             Mecze.Matches(list, datapoczatkowa, datakoncowa);
-
-
             //Zapis do pliku txt
             BundDataSet.SaveToFile("Bundesliga.txt", list);
 
 
+
+            Console.WriteLine("Naciśnij klawisz Enter, aby zapisać (mecze od do) do pliku. Naciśnij Escape, aby zakończyć.");
+            Console.WriteLine("****************************************************");
+            Console.ReadKey();
             //Zapis do pliku CSV
             List<BundDataSet> matchingMatches = Mecze.Matches(list, datapoczatkowa, datakoncowa);
             while (true)
@@ -83,8 +102,6 @@ namespace MeczeBundesligi
                 {
                     break;
                 }
-                Console.WriteLine("****************************************************");
-                Console.ReadKey();
             }
         }
     }

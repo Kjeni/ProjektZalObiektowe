@@ -6,18 +6,8 @@ using System.Threading.Tasks;
 
 namespace MeczeBundesligi
 {
-    public class Counting: IDataSet
+    public class Counting
     {
-
-        public string team1 { get; set; }
-        public string team2 { get; set; }
-        public double draw { get; set; }
-        public double team1_win { get; set; }
-        public double team2_win { get; set; }
-        public DateTime Date { get; set; }
-        public int goal1 { get; set; }
-        public int goal2 { get; set; }
-
         public static int CountTeamWins(List<BundDataSet> list, string teamName ,DateTime startDate, DateTime endDate)
         {
             int count = 0;

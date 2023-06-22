@@ -16,5 +16,6 @@ namespace MeczeBundesligi
         DateTime Date { get; set; }
         int goal1 { get; set; }
         int goal2 { get; set; }
+        string location { get; set; }
     }
 }
